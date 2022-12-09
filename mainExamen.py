@@ -165,8 +165,7 @@ if __name__ == "__main__":
 
     sortedc = []
     for cluster in clusters:
-        sortedc.append(sorted(cluster, key=lambda x: x[0]))
-    
+        sortedc.append(sorted(cluster, key=lambda x: x[1]))
     distancias = src2.copy()
 
     for cluster in sortedc:
@@ -174,9 +173,9 @@ if __name__ == "__main__":
         print(f"Max: {cluster[-1]}")
         distancias = cv.line(
             distancias, (cluster[0][1], cluster[0][0]), (cluster[-1][1], cluster[-1][0]), (0, 255, 255), 2)
-    
-    
     cv.imwrite("final.jpg",distancias)
     cv.imshow("Distancias",distancias)
     cv.waitKey()
+
+
 
